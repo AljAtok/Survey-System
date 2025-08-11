@@ -1,0 +1,238 @@
+body {
+    scroll-behavior: smooth;
+    min-height     : 100%;
+    /* background-color: #bf1e2e; */
+    background-color: #a51e22;
+
+    /* background-image: url('../../assets/img/bg-image.jpg');
+    background-size: cover; */
+}
+
+#form-header {
+  margin-top   : 4rem;
+  margin-bottom: 2rem;
+  margin-left  : 4rem;
+  margin-right : 4rem;
+
+}
+
+#success-header {
+  margin-top   : 4rem;
+  margin-bottom: 2rem;
+}
+
+#mechanics-header {
+  margin-top: 4rem;
+}
+
+#upcoming-header {
+  margin-top   : 4rem;
+  margin-bottom: 2rem;
+}
+
+#ended-header {
+  margin-top   : 4rem;
+  margin-bottom: 2rem;
+}
+
+.banner #desktop-banner {
+display: none;
+} 
+
+.banner #tablet-banner {
+display: none;
+} 
+
+.banner #mobile-banner {
+display: none;
+} 
+
+.table td, .table th {
+    padding: .6rem;
+}
+
+.error {
+    color      : #5a5c69;
+    font-size  : 7rem;
+    position   : relative;
+    line-height: 1;
+    width      : 12.5rem
+}
+
+.error:after {
+    content    : attr(data-text);
+    position   : absolute;
+    left       : 2px;
+    text-shadow: -1px 0 #e74a3b;
+    top        : 0;
+    color      : #5a5c69;
+    background : #f8f9fc;
+    overflow   : hidden;
+    clip       : rect(0, 900px, 0, 0);
+    animation  : noise-anim 2s infinite linear alternate-reverse
+}
+
+.error:before {
+    content    : attr(data-text);
+    position   : absolute;
+    left       : -2px;
+    text-shadow: 1px 0 #4e73df;
+    top        : 0;
+    color      : #5a5c69;
+    background : #f8f9fc;
+    overflow   : hidden;
+    clip       : rect(0, 900px, 0, 0);
+    animation  : noise-anim-2 3s infinite linear alternate-reverse
+}
+
+
+
+
+
+.form-control:focus, .custom-select:focus, .select2-container--bootstrap4.select2-container--focus .select2-selection {
+    border-color: #093842;
+    box-shadow: none;
+}
+
+.select2-container--bootstrap4 .select2-results__option--highlighted, .select2-container--bootstrap4 .select2-results__option--highlighted.select2-results__option[aria-selected=true] {
+    background-color: #093842;
+}
+
+.btn-main{
+    border-radius: 0px;
+}
+
+.main-bg-color:hover, .btn-checkout:hover {
+    background-color: #a61722!important;
+    color: #fff;
+}
+
+.form-control, .select2-container--bootstrap4 .select2-selection {
+    border-radius: 0px;
+}
+
+.custom-file-input:focus~.custom-file-label {
+    border-color: #093842;
+    box-shadow: none;
+}
+
+
+.custom-file-input~.custom-file-label {
+    border-radius: 0px;
+}
+
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before{
+    background-color: #093842;
+    border-color: #093842;
+}
+
+.custom-checkbox .custom-control-input:focus~.custom-control-label::before{
+    box-shadow: none;
+}
+
+
+.custom-checkbox .custom-control-input:active~.custom-control-label::before{
+    background-color: #093842;
+}
+
+
+.card {
+    /* border: #fdee23;
+    border-style: solid;
+    border-width: 5px; */
+
+    border: none;
+    border-radius: 0px;
+    background-color: #fff!important;
+    height: 100%;
+}
+
+.form-control.is-valid:focus, .was-validated .form-control:valid:focus, .form-control.is-invalid:focus, .was-validated .form-control:invalid:focus {
+    box-shadow: none;
+}
+
+.btn-main {
+    background-color: #a51e22;
+    border-color    : #a51e22;
+}
+
+.select2 {
+  width: 100%!important;
+}
+
+@media (max-width: 1024px) {
+
+  .banner #large-banner {
+    display: none;
+  } 
+
+  .banner #desktop-banner {
+    display: block;
+  } 
+
+  .banner #tablet-banner {
+    display: none;
+  } 
+
+  .banner #mobile-banner {
+    display: none;
+  } 
+}
+
+@media (max-width: 768px) {
+  .banner #large-banner {
+    display: none;
+  } 
+
+  .banner #desktop-banner {
+    display: none;
+  } 
+
+  .banner #tablet-banner {
+    display: block;
+  } 
+
+  .banner #mobile-banner {
+    display: none;
+  } 
+}
+
+@media (max-width: 360px) {
+  .banner #large-banner {
+    display: none;
+  } 
+
+  .banner #desktop-banner {
+    display: none;
+  } 
+
+  .banner #tablet-banner {
+    display: none;
+  } 
+
+  .banner #mobile-banner {
+    display: block;
+  } 
+
+  #form-header {
+    font-size   : 1rem;
+    margin-top  : 3rem;
+    margin-left : 2rem;
+    margin-right: 2rem;
+  }
+
+  #success-header {
+    margin-top   : 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  #mechanics-header {
+    margin-top: 2rem;
+  }
+
+  #upcoming-header, #ended-header {
+    margin-top: 2rem;
+  }
+
+}

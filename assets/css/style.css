@@ -1,0 +1,185 @@
+body {
+    scroll-behavior: smooth;
+    min-height     : 100%;
+}
+
+
+.table td, .table th {
+    padding: .6rem;
+}
+
+.error {
+    color      : #5a5c69;
+    font-size  : 7rem;
+    position   : relative;
+    line-height: 1;
+    width      : 12.5rem
+}
+
+.error:after {
+    content    : attr(data-text);
+    position   : absolute;
+    left       : 2px;
+    text-shadow: -1px 0 #e74a3b;
+    top        : 0;
+    color      : #5a5c69;
+    background : #f8f9fc;
+    overflow   : hidden;
+    clip       : rect(0, 900px, 0, 0);
+    animation  : noise-anim 2s infinite linear alternate-reverse
+}
+
+.error:before {
+    content    : attr(data-text);
+    position   : absolute;
+    left       : -2px;
+    text-shadow: 1px 0 #4e73df;
+    top        : 0;
+    color      : #5a5c69;
+    background : #f8f9fc;
+    overflow   : hidden;
+    clip       : rect(0, 900px, 0, 0);
+    animation  : noise-anim-2 3s infinite linear alternate-reverse
+}
+
+
+.form-control:focus, .custom-select:focus, .select2-container--bootstrap4.select2-container--focus .select2-selection {
+    box-shadow: none;
+}
+
+.custom-file-input:focus~.custom-file-label {
+    box-shadow: none;
+}
+
+.custom-checkbox .custom-control-input:focus~.custom-control-label::before{
+    box-shadow: none;
+}
+
+.form-control.is-valid:focus, .was-validated .form-control:valid:focus, .form-control.is-invalid:focus, .was-validated .form-control:invalid:focus {
+    box-shadow: none;
+}
+
+#result {
+    border       : 1px solid #888;
+    background   : #f7f7f7;
+    padding      : 1em;
+    margin-bottom: 1em;
+}
+
+
+/* Overlay */
+
+#loaded__overlay {
+    display: none;
+}
+
+.overlay__outer {
+    left            : 0;
+    top             : 0;
+    width           : 100%;
+    height          : 100%;
+    position        : fixed;
+    z-index         : 100000;
+    background-color: rgba(0,0,0,0.8);
+    cursor          : wait;
+}
+
+.overlay__inner {
+    left    : 0;
+    top     : 0;
+    width   : 100%;
+    height  : 100%;
+    position: absolute;
+}
+
+.overlay__content {
+    left     : 50%;
+    position : absolute;
+    top      : 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Spinner */
+
+.spinner {
+    width           : 75px;
+    height          : 75px;
+    display         : inline-block;
+    border-width    : 3.2px;
+    border-color    : rgb(75, 75, 75);
+    border-top-color: #fff;
+    animation       : spin 1s infinite linear;
+    border-radius   : 100%;
+    border-style    : solid;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Spinner Ends Here */
+
+
+/* Avatar */
+
+.avatar-circle {
+  width                : 56px;
+  height               : 56px;
+  background-color     : whitesmoke;
+  text-align           : center;
+  border-radius        : 10%;
+  -webkit-border-radius: 10%;
+  -moz-border-radius   : 10%;
+}
+
+.initials {
+  position   : relative;
+  top        : 14px;                      /* 25% of parent */
+  font-size  : 40px;                      /* 50% of parent */
+  line-height: 30px;                      /* 50% of parent */
+  color      : #b6b6b6;
+  font-family: "Consolas", monospace;
+  font-weight: bold;
+}
+
+@mixin avatar($size) {
+    width                : $size;
+    height               : $size;
+    background-color     : $brand-special;
+    text-align           : center;
+    border-radius        : 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius   : 50%;
+
+    .initials {
+      position   : relative;
+      top        : $size*0.25;
+      font-size  : $size*0.5;
+      line-height: $size*0.5;
+      color      : #fff;
+      font-family: "Courier New", monospace;
+      font-weight: bold;
+    }
+}
+
+.avatar-circle      { @include avatar(100px); }
+.avatar-circle-sm   { @include avatar(50px); }
+.avatar-circle-lg   { @include avatar(250px); }
+
+/* Avatar Ends Here */
+
+
+/* force select2 to match bootstrap form-control-sm */ 
+.select2, .select2-selection__rendered { 
+    line-height: calc(1.5em + .5rem + 2px) !important; 
+}
+
+.select2-container .select2-selection--single { 
+    height: calc(1.5em + .5rem + 2px) !important; 
+} 
+
+.select2-container--bootstrap4 .select2-selection__clear {
+    padding-left: 0.24em;
+}

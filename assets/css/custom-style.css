@@ -1,0 +1,221 @@
+/* .field-selected{
+    border-style: dotted;
+    border-radius: 1rem;
+    transform: scale(1.01);
+    max-height: fit-content;
+    transition-duration: 200ms;
+} */
+
+.field-default{
+    border-style: solid;
+    border-radius: 1rem;
+    border-width: 0.1rem;
+    border-color: rgb(241 245 249);
+    padding: 1rem;
+    margin: 0.5rem 0 0.5rem 0;
+    height: fit-content;
+    overflow: hidden;
+}
+
+.field-default:focus-within{
+    border-color: black;
+    border-radius: 1rem;
+    transform: scale(1.01);
+    max-height: fit-content;
+    transition-duration: 200ms;
+}
+
+.w-fit-content{
+    width: fit-content;
+}
+
+.h-fit-content{
+    height: fit-content;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+
+i{
+    pointer-events: none; 
+}
+
+textarea {
+    resize: none;
+}
+/* .open{
+    display: block;
+    height: 25%;
+}
+
+.close{
+    display: hidden;
+    height: 0;
+} */
+
+
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    appearance: textfield;
+}
+
+.zxc4{/* experiment */
+    border-style: solid;
+    border-radius: 1rem;
+}
+
+/* Survey Page Validation */
+.field-success {
+    border-color : #27a844;
+    outline : none;
+    border-radius : .25rem;
+}
+
+.field-error {
+    border-color : #dc3545;
+    outline : none;
+    border-radius : .25rem;
+}
+
+.required:after {
+    content: "*";
+    color: red;
+}
+
+.field-error-icon {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    color: #dc3545;
+}
+
+
+
+/* Survey Page */
+@font-face {
+    font-family: 'ChunkFive';
+    src: url('../fonts/Chunk.otf') format('opentype');
+}
+
+.font-chunkfive {
+    font-family: ChunkFive, sans-serif;
+}
+
+.banner-bg {
+    background-image: url('../img/banner-bg.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    min-height: 100%;
+    position: relative;
+}
+
+.mosaic-bg {
+    background-image: url('../img/mosaic-bg.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    min-height: 100%;
+    position: relative;
+}
+
+.survey-container{
+    width: 50%;
+    font-size: 1.1rem;
+}
+
+.survey-banner{
+    width: 100%;
+    height: auto;
+    border-radius: .25rem;
+    object-fit: contain;
+}
+
+/* Success Page */
+.socials-icon{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: #e3d40b;
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+    text-decoration: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s;
+}
+
+.socials-icon:hover {
+    text-decoration: none;
+    transform: scale(1.1);
+}
+
+.socials-icon h3 {
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: white;
+    margin: 0;
+}
+
+.endorser-img {
+    position: absolute;
+    left: -1rem;
+    bottom: -3rem;
+}
+@media screen and (max-width: 1100px) {
+    .endorser-img {
+        width: 30%;
+        /* max-width: fit-content; */
+        left: -3rem;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .survey-container {
+        width: 75%;
+        font-size: 1rem;
+    }
+
+    .endorser-img {
+        /* width: 50%; */
+        max-width: fit-content;
+        left: -3rem;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .survey-container {
+        width: 100%;
+        font-size: 0.9rem;
+    }
+
+    .socials-icon{
+        width: 3rem;
+        height: 3rem;
+    }
+    
+    .socials-icon h3 {
+        font-size: 1.4rem;
+    }
+
+    .endorser-img {
+        display: none;
+    }
+}
+
+/* @media screen and (max-width: 400px) {
+    .survey-container {
+        font-size: 0.6rem;
+    }
+} */

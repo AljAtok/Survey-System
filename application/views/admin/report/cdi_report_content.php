@@ -1,0 +1,81 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item text-muted">Reports</li>
+        <li class="breadcrumb-item active" aria-current="page"><?=$title?></li>
+    </ol>
+</nav>
+<br>
+<h3><?=$title?></h3>
+<hr>
+<?=$this->session->flashdata('message');?>
+
+<div id="cdireports">
+
+    <div class="filter-container">
+        <form class="container-fluid" method="post" action="<?= base_url( 'admin/survey_export/' . encode(1) )?>" target="_blank">
+            <div class="row">
+
+                <div class="col-sm-12 col-md-4">
+                    <div class="row">
+                        <label for="date-filter" class="col-sm-4 col-form-label col-form-label-md">
+                            Date Filter:
+                        </label>
+                        <div class="col-sm-8">
+                            <input name="date-filter" class="datepicker form-control form-control-sm"
+                            data-picker-config='{
+                                "mode": "range",
+                                "dateFormat": "Y-m-d"
+                            }'>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-4">
+                    <div class="row">
+                        <label for="store-filter" class="col-sm-2 col-form-label col-form-label-md">Store:</label>
+                        <div class="col-sm-10">
+                            <select class="form-select form-select-sm" name="store-filter">
+                                <option value="" selected>Show All</option>
+                                <?php foreach($stores as $store): ?>
+                                    <option value="<?= $store->store_id ?>"><?= $store->store_name ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-4">
+                    <button class="btn btn-success btn-sm w-100" type="submit"> Export <i class="fa fa-file-excel-o"></i> </button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+    <hr>
+
+    <div class="report-container">
+
+        <div class="table-responsive">
+
+            <table class="table table-striped mb-5 mt-3 w-100 cdi-data-table" data-url="<?= base_url('admin/load_report_page_table/'. encode(1)) ?>">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Reference Number</th>
+                        <th>OR Number</th>
+                        <th>Store Name</th>
+                        <th>Name</th>
+                        <th>Contact Number</th>
+                        <th>Email</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

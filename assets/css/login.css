@@ -1,0 +1,448 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+}
+
+#sidebar {
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
+    background: #ED1C2C;
+    color: #fff;
+    transition: all 0.3s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
+}
+
+#content {
+    width: calc(100% - 250px);
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
+#content.active {
+    width: 100%;
+}
+
+.sidebar-header{
+    margin-top: 25px;
+    /* color: #e3d700; */
+}
+
+#sidebar #main-menu{
+    margin-left: 20px;
+}
+
+#sidebar #main-menu li{
+    padding: 15px 10px;
+
+}
+#sidebar #main-menu li a{
+    color: #fff;
+    text-decoration: none;
+}
+
+#sidebar #main-menu li a:hover{
+    /*margin-left: 25px;
+    transition:all .5s ease-in-out;*/
+}
+
+#admin-content{
+    margin-top: 20px;
+}
+
+.btn-add{
+    margin: 10px 0px;
+    background-color: #3f51b5;
+    color: #fff;
+    border-radius: 0px;
+    /*box-shadow: 0 3px 6px 0 rgba(237,28,44,0.8);*/
+}
+
+.btn-square{
+    color: #fff;
+    border-radius: 0px;
+}
+
+.table{
+    font-size: 12px;
+}
+
+.table thead{
+    background-color: #e3d700;
+    color: #fff;
+}
+
+.btn-main{
+    background-color: #ED1C2C;
+    border-color: #ED1C2C;
+    color: #fff;
+}
+
+.btn-yes, .btn-no{
+    width: 50px;
+}
+
+.pending-color{
+    background-color: #E8824F;
+    color: #fff;
+}
+
+.acknowledge-color{
+    background-color: #3BB0BA;
+    color: #fff;
+}
+
+.cancel-color{
+    background-color: #D51D48;
+    color: #fff;
+}
+
+.receive-color{
+    background-color: #95CE67;
+    color: #fff;
+}
+
+#order-cards{
+    margin-bottom: 20px;
+}
+
+.card-1{
+    background-color: #E8824F;
+    color: #fff;
+    border-radius: 0px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
+}
+
+.card-2{
+    background-color: #3BB0BA;
+    color: #fff;
+    border-radius: 0px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
+}
+
+.card-3{
+    background-color: #95CE67;
+    color: #fff;
+    border-radius: 0px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
+}
+
+.card-4{
+    background-color: #D51D48;
+    color: #fff;
+    border-radius: 0px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
+}
+
+.card-5{
+    background-color: #4A54CE;
+    color: #fff;
+    border-radius: 0px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
+}
+
+.cancel-order, .cancel-btn{
+    color: #D51D48;
+}
+
+.badge-pending{
+    background-color: #E8824F;
+    color: #fff;
+}
+
+.customer-details-nav, .order-details-nav{
+    background-color: #ED1C2C;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+#customer-details{
+    margin-bottom: 50px;
+}
+
+#customer-details .form-control{
+    margin-bottom: 10px;
+}
+
+.label-details{
+    margin: 15px 0px;
+}
+
+.cancel-order-details{
+    color: #D51D48;
+}
+
+.strike-text{
+    text-decoration: line-through;
+}
+
+/*Loader CSS*/
+
+#loader-wrapper {
+    background-color: rgba(0,0,0,0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000000;
+}
+#loader {
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border-radius: 50%;
+    border: 5px solid transparent;
+    border-top-color: #764ba2;
+
+    -webkit-animation: spin 2s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+    animation: spin 2s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+}
+
+    #loader:before {
+        content: "";
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        right: 5px;
+        bottom: 5px;
+        border-radius: 50%;
+        border: 5px solid transparent;
+        border-top-color: #3cba92;
+
+        -webkit-animation: spin 3s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+        animation: spin 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+    }
+
+    #loader:after {
+        content: "";
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+        border-radius: 50%;
+        border: 5px solid transparent;
+        border-top-color: #b12a5b;
+
+        -webkit-animation: spin 1.5s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+          animation: spin 1.5s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+    }
+
+    @-webkit-keyframes spin {
+        0%   { 
+            -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+            -ms-transform: rotate(0deg);  /* IE 9 */
+            transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+        }
+        100% {
+            -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+            -ms-transform: rotate(360deg);  /* IE 9 */
+            transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+        }
+    }
+    @keyframes spin {
+        0%   { 
+            -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+            -ms-transform: rotate(0deg);  /* IE 9 */
+            transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+        }
+        100% {
+            -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+            -ms-transform: rotate(360deg);  /* IE 9 */
+            transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+        }
+    }
+
+.loaded #loader-wrapper {
+    visibility: hidden;
+}
+
+.sales-det-qty-input, .sales-det-price-input{
+    border: none;
+    border-bottom: 1px solid #37474f;
+    border-radius: 0px;
+    background: transparent;
+    outline: none;
+    box-shadow: none;
+    width: 50%;
+    text-align: right;
+}
+
+.modal {
+    overflow: auto !important;
+}
+
+.discount-code-div{
+    padding-left: 0px;
+}
+
+
+/*Dashboard CSS*/
+
+.dashboard-row{
+    margin-bottom: 40px;
+}
+
+#dashboard-box{
+
+}
+
+#today-sales, #avg-sales{
+    padding-top: 10px;
+    border: 2px solid #fcc584;
+}
+
+
+#today-sales-info{
+    margin-top: 50px;
+
+}
+
+#sales-today-label, #sales-tw-label{
+    font-size: 22px;
+    text-align: center;
+    color: #ED1C2C;
+}
+
+.secondary-text{
+    color: #697684;
+    font-size: 12px;
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+
+    #content{
+        width: 100%;
+    }
+
+    #content.active {
+        width: calc(100% - 250px);
+    }
+}
+
+.card-6{
+    background-color: #6c757d;
+    color: #fff;
+    border-radius: 0px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
+}
+
+.card-7{
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 0px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
+}
+
+.card-7{
+    background-color: #feceab;
+    color: #fff;
+    border-radius: 0px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
+}
+
+
+.card-8{
+    background-color: #ff847c;
+    color: #fff;
+    border-radius: 0px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
+}
+
+
+.card-9{
+    background-color: #e84a5f;
+    color: #fff;
+    border-radius: 0px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
+}
+
+.card-10{
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 0px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
+}
+
+.card-forwarded{
+    background-color: #fdd835;
+    color: #fff;
+    border-radius: 0px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
+}
+
+.select2-container.select2-container--default.select2-container--open  {
+  z-index: 5000;
+}
+
+.reseller-info-form input{
+    border-radius: 0px;
+}
+.custom-select-md {
+    height: 47px !important;
+    line-height: 1.9 !important;
+    font-size: 1.1rem !important;
+}
+
+.profile-info{
+    font-size: 12px;
+    margin-top: 12px;
+}
+
+.btn-small{
+    margin-top: 12px;
+    margin-bottom: 20px;
+    width: 90px;
+    font-size: 13px;
+    padding: 2px 0px;
+}
+
+.btn-so{
+    color: #4caf50;
+}
+
+.login-wallpaper {
+    background-image: url('../img/login-image.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    min-height: 100%;
+    position: relative;
+}
+
+.login-card {
+    width: 400px;
+    padding: 60px 30px 20px 30px;
+    border-radius: 15px;
+}
+
+.fixed-header th {
+    background:#e3d700;
+}
