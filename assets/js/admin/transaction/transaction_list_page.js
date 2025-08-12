@@ -162,6 +162,35 @@ $(function () {
 					{ data: "action" },
 				]
 			);
+		} else if (name.includes("CHOOKSIES QR PROMO")) {
+			appendTableHeaders(Table, [
+				"Reference Number",
+				"Province",
+				"Brgy & Town",
+				"Name",
+				"Contact Number",
+				"Email",
+				"Date",
+				"Status",
+				"Action",
+			]);
+
+			initializeDataTable(
+				Table,
+				selectedFormId,
+				"/load_transaction_page_table_for_qr_promo/",
+				[
+					{ data: "reference_number" },
+					{ data: "province_name" },
+					{ data: "brgy_town_name" },
+					{ data: "name" },
+					{ data: "contact_number" },
+					{ data: "email" },
+					{ data: "date" },
+					{ data: "status" },
+					{ data: "action" },
+				]
+			);
 		}
 	});
 

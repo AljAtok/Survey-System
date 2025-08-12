@@ -79,9 +79,9 @@
 									404
 								<?php break; ?>
 								<?php case 9: ?>
-									<div class="d-flex justify-content-between my-2">
-										<label for="<?= $shorten_field_name ?>" ><?= $field->field_name ?></label>
-										<p class="border m-0 p-1 px-3 rounded w-fit-content" id="<?= $shorten_field_name ?>" name="<?= $shorten_field_name ?>" ><?= decode($field->response) ?></p>
+									<div class="d-flex flex-column align-items-start my-2">
+										<label for="<?= $shorten_field_name ?>"><?= $field->field_name ?></label>
+										<p class="border m-0 p-1 px-3 rounded w-fit-content" id="<?= $shorten_field_name ?>" name="<?= $shorten_field_name ?>"><?= decode($field->response) ?></p>
 									</div>
 								<?php break; ?>
 								<?php case 10: ?>

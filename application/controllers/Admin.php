@@ -1825,6 +1825,10 @@ class Admin extends CI_Controller {
     public function transaction_view($transaction = '')
     {
         $login_info = require_login($this->controller);
+		$employee_id 					= decode($login_info['employee_id']);
+        $forms 							= $this->_get_form_access($employee_id);
+		$form_access_links 				= array_column($forms, 'internal_link');
+        $report_menus 					= $this->_get_form_menu($forms);
         
         if (empty($transaction)) show_404();
         $decoded_transaction = decode($transaction);
@@ -1850,6 +1854,8 @@ class Admin extends CI_Controller {
 
         $data['transaction_id']  = $decoded_transaction;
         $data['controller']      = $this->controller;
+		$data['form_access_links'] = $form_access_links;
+		$data['report_menus'] 	 = $report_menus;
         $data['title']           = ucwords(str_replace('_', ' ', __FUNCTION__));
         $data['content']         = $this->load->view($this->controller . '/transaction/transaction_view_content', $data, TRUE);
         $this->load->view($this->controller . '/template', $data);
@@ -2248,6 +2254,40 @@ class Admin extends CI_Controller {
 
         $this->load->view($this->controller . '/template', $template_resources);
     }
+	
+	public function chooksies_qr_promo_report(){
+		
+		$parent_db 						= parent_db();
+		$form_id						= 5;
+        $info 							= require_login($this->controller);
+        $employee_id 					= decode($info['employee_id']);
+        $forms 							= $this->_get_form_access($employee_id);
+		$form_access_links 				= array_column($forms, 'internal_link');
+        $report_menus 					= $this->_get_form_menu($forms);
+
+        $title            				= ucwords(str_replace('_', ' ', __FUNCTION__));
+		$provinces  					= $this->main->get_data("{$parent_db}.provinces_tbl b", ['province_status' => 1]);
+
+        $ctg_page_resources = [
+            'provinces' => $provinces,
+            'title' => $title,
+            'controller' => $this->controller,
+			'form_id'	=> $form_id
+        ];
+
+        $content = $this->load->view($this->controller . '/report/qr_promo_report_content', $ctg_page_resources, TRUE);
+
+        $template_resources = [
+            'content' 					=> $content,
+            'js_scripts' 				=> [
+                'report/report_content_page.js?v=1.1'
+            ],
+			'form_access_links'         => $form_access_links,
+            'report_menus'         		=> $report_menus,
+        ];
+
+        $this->load->view($this->controller . '/template', $template_resources);
+    }
 
     private function initialize_form_report_data($form_id){
         $filter = $this->input->post();
@@ -2435,7 +2475,7 @@ class Admin extends CI_Controller {
         if($form_id == 2){
             unset($defaultColumnHeaders[2]);
         }
-		elseif($form_id == 3 || $form_id == 4){
+		elseif($form_id == 3 || $form_id == 4 || $form_id == 5){
 			$defaultColumnHeaders = ['Reference', 'Province', 'Brgy & Town', 'Name', 'Email', 'Created At', 'Contact Number', 'Status', 'Is Winner', 'Winner Date'];
 		}
 
@@ -2638,6 +2678,7 @@ class Admin extends CI_Controller {
 		elseif($form_id == 2) $survey_tag = 'CTG';
 		elseif($form_id == 3) $survey_tag = 'CTG QR Promo';
 		elseif($form_id == 4) $survey_tag = 'UR QR Promo';
+		elseif($form_id == 5) $survey_tag = 'CHOOKSIES QR Promo';
         // $survey_tag = $form_id == 1 ? 'CDI' : 'CTG';
 
         $date = formatDateRange($date_from, $date_to) ?? 'All Time';
