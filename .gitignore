@@ -11,6 +11,7 @@ application/config/config.php
 application/config/autoload.php
 application/ci_sessions/*
 application/sys_sess/*
+captcha_images/*
 system/*
 assets/uploads/*
 assets/img/*
