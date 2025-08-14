@@ -479,14 +479,14 @@ class Customer extends CI_Controller {
 		$duplicate_entry = FALSE;
 		$conflict_emp = FALSE;
 		
-		if($form_data->form_id == 3 || $form_data->form_id == 4 || $form_data->form_id == 5){ //* QR PROMO SURVEY
-
+		
+		if($form_data->form_id == 3 || $form_data->form_id == 4){ //* QR PROMO SURVEY
 			$is_employee = $this->_check_if_employee($normalized_name);
 			if($is_employee){
 				$conflict_emp = TRUE;
 				$this->_conflict_employee_entry($reference_code, $form_data->form_id);
 			} else {
-				//* RESTRICT TO 1 ENTRY PER NAME
+				//* RESTRICT TO 1 ENTRY PER NAME, EMAIL, CONTACT NUMBER
 				// $filter = "DATE_FORMAT(created_at, '%Y-%m-%d') = '".date('Y-m-d')."' AND ( name = '".$transaction_survey_reference[shorten_field_name('name', null)]."' OR email = '".$transaction_survey_reference[shorten_field_name('email', null)]."' OR contact_number = '".$transaction_survey_reference[shorten_field_name('contact number', null)]."')";
 				$filter = "(normalized_name = '".$normalized_name."' OR email = '".$transaction_survey_reference[shorten_field_name('email', null)]."' OR contact_number = '".$transaction_survey_reference[shorten_field_name('contact number', null)]."') and status = 1 and form_id = ".$form_data->form_id;
 				$survey_ref = $this->main->get_data("{$sibling_db}.survey_reference_tbl", $filter, TRUE, ['name', 'email', 'contact_number']);
@@ -500,6 +500,15 @@ class Customer extends CI_Controller {
 				}
 			}
 			
+		}
+
+		if($form_data->form_id == 5){ //* CHOOKSIES QR PROMO
+			//* RESTRICT TO EMPLOYEE LIST
+			$is_employee = $this->_check_if_employee($normalized_name);
+			if($is_employee){
+				$conflict_emp = TRUE;
+				$this->_conflict_employee_entry($reference_code, $form_data->form_id);
+			}
 		}
 
 		if(!$duplicate_entry && !$conflict_emp){
